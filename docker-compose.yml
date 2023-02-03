@@ -18,12 +18,16 @@ services:
     container_name: php
     build:
       context: ./php
+    environment:
+      DATABASE_URL: mysql://root:secret@database:3306/symfony_docker?serverVersion=8
     ports:
       - '9000:9000'
     volumes:
       - ./app:/var/www/symfony_docker
     depends_on:
       - database
+    entrypoint: /var/www/symfony_docker/bin/entrypoint.sh
+    command: php-fpm
   nginx:
     container_name: nginx
     image: nginx:stable-alpine
