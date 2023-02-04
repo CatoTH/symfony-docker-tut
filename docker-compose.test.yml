@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  php:
+    container_name: php
+    build:
+      context: ./php
+    environment:
+      APP_ENV: test
+      DATABASE_URL: mysql://root:secret@database:3306/symfony_docker_test?serverVersion=8
+    ports:
+      - '9000:9000'
+    volumes:
+      - ./app:/var/www/symfony_docker
+    depends_on:
+      - database
+    entrypoint: /var/www/symfony_docker/bin/entrypoint_test.sh

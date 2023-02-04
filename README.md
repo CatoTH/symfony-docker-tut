@@ -1,8 +1,8 @@
-## Test Project
+# Test Project
 
 
 
-### Running
+## Running
 
 The docker build runs on arm64/aarch64 and x86_64 architectures.
 
@@ -14,6 +14,14 @@ docker-compose up
 After that, the following URL is accessible:
 
 http://localhost:8080
+
+## Testing
+
+The test cases can be run using the following command:
+
+```sh
+docker-compose -f docker-compose.yml -f docker-compose.test.yml up
+```
 
 
 ### Limitations
