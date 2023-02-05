@@ -1,10 +1,10 @@
 version: '3.8'
 
 services:
-  php:
-    container_name: php
+  app:
+    container_name: app
     build:
-      context: ./php
+      context: ./app
     environment:
       APP_ENV: test
       DATABASE_URL: mysql://root:secret@database:3306/symfony_docker_test?serverVersion=8

@@ -20,14 +20,15 @@ http://localhost:8080
 The test cases can be run using the following command:
 
 ```sh
-docker-compose -f docker-compose.yml -f docker-compose.test.yml up
+docker-compose -f docker-compose.yml -f docker-compose.test.yml up --abort-on-container-exit
 ```
 
 
 ### Limitations
 
 - docker-compose is used in a rudimentary way. Hard-coding the passwords there is not the way to go for going live :-)
-
+- dev dependencies are installed, which would not make sense on a production build
+- The composer install should not be in the entrypoint script. This is only necessary as we mount the local dev directory into the container for easier development, overwriting the vendor directory of the image.
 
 ### Sources / Acknowledgements
 
