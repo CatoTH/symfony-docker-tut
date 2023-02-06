@@ -24,7 +24,21 @@ docker-compose -f docker-compose.yml -f docker-compose.test.yml up --abort-on-co
 ```
 
 
-### Limitations
+## Developing
+
+Creating the OpenAPI.json:
+```sh
+composer run create-openapi
+```
+
+Checking phpstan rules:
+```sh
+composer run phpstan
+```
+
+## Limitations
+
+### Docker
 
 - docker-compose is used in a rudimentary way. Hard-coding the passwords there is not the way to go for going live :-)
 - dev dependencies are installed, which would not make sense on a production build
